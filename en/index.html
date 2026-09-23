@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy – Etappa</title>
+<meta name="description" content="Etappa privacy policy: what data is processed, for what purpose and on what legal basis.">
+<link rel="icon" href="../assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/favicon.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="../assets/icon.png" alt="">
+      <span class="brand-name">Etappa</span>
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap content">
+    <h1>Privacy Policy – Etappa</h1>
+    <p class="stand">Last updated: 23 September 2026</p>
+<p>This policy describes what data the <strong>Etappa</strong> app processes, for what purpose, and on what legal basis – based on the actual source code. New features only appear here once they are really in the code; until then they are explicitly marked "planned".</p>
+<h2>1. Controller</h2>
+<p>Patrick Voelz<br>Plauer Str. 3<br>19395 Ganzlin<br>Germany<br><a href="mailto:support@voelz-media.de">support@voelz-media.de</a></p>
+<p>For privacy questions, please contact me at the email address above.</p>
+<h2>2. Principle</h2>
+<p>Etappa is built without its own server. There is <strong>no</strong> sign-up with Etappa, <strong>no</strong> user account with me, and <strong>no</strong> transmission of your trip data to me. Your trips, stages, payments, documents and settings live on your device (SwiftData) and — if you use iCloud sync — additionally in <strong>your own</strong> private iCloud account. I have no access to it.</p>
+<p>Etappa uses <strong>no</strong> analytics, tracking, or advertising SDKs and builds no usage profile. There is no tracking in the sense of Apple's App Tracking Transparency framework.</p>
+<p>Automated decision-making within the meaning of Art. 22 GDPR or profiling does not take place — every rule notice the app shows (e.g. a night gap, a due payment) is a hint for you to assess yourself, never an automated decision with legal effect on you.</p>
+<p>Entering your trip data is voluntary but required to use the corresponding feature — no stages, no timeline; no payment plan, no due-date reminders. Location, camera, and notification access are likewise voluntary: without them, only the dependent extra features stop working (e.g. arrival notifications without location access), the rest of the app stays usable.</p>
+<h2>3. What data Etappa processes, and why</h2>
+<h3>3.1 Trip data (stages, payments, to-dos, vehicle profile, travelers)</h3>
+<p>Titles, dates, places, amounts, notes and similar information you enter yourself for your trip. Purpose: the app's core function — planning and tracking a trip. This data stays on your device, or, with iCloud sync turned on, in your private iCloud database. It is not transmitted to me.</p>
+<p><strong>Travelers:</strong> no date of birth is stored, only an age group. <strong>IDs/documents:</strong> Etappa stores, at most, the document type, expiry date and first name of the person — <strong>never an ID number</strong> — and there is no requirement to scan or store an ID at all.</p>
+<h3>3.2 Location</h3>
+<p>Etappa asks for "While Using" access to</p>
+<ul><li>one-time translate your current location into an address for your home profile (setup), and</li><li>detect when you arrive at a stage so it can show you the booking reference and access codes.</li></ul>
+<p>Etappa asks for "Always" access <strong>only</strong> when you turn on arrival notifications — that is the only way iOS can detect an arrival by geofence while the app is closed. Without arrival notifications turned on, it stays at "While Using".</p>
+<p>The one-time home address lookup and the automatic distance/driving-time calculation use Apple's map services (see 3.3) — for those, the coordinate involved leaves the device toward Apple, not toward me. The geofence monitoring for arrival notifications itself runs on the device via iOS; there is no Etappa server that receives your location, and Etappa builds no movement profile.</p>
+<p>Only the address derived from your location is stored, not the location itself, as your home (on your device; with iCloud sync or when sharing your home, also in your iCloud account and with invited participants). You can change or delete it at any time in Settings.</p>
+<h3>3.3 Apple Maps (MapKit, location services)</h3>
+<p>For address search when creating a stage, automatic calculation of distance and driving time between stages, nearby-place suggestions, the "Look Around" preview, and converting coordinates into countries/addresses, Etappa sends your search text or the relevant coordinates to Apple's map service. <strong>No names, booking references, or other trip data are transmitted</strong> — only search text or coordinates. This automatic calculation can be turned off in Settings.</p>
+<p>If you deliberately share a route via the share button (e.g. to the Tesla app or Google Maps), the opened maps link transmits the start and destination coordinates (and, for Google Maps, possibly a few intermediate route points) to Google or Apple Maps — this only happens when you explicitly tap it, never automatically.</p>
+<h3>3.4 Local notifications</h3>
+<p>Arrival notifications, change notifications for shared trips, and similar reminders are <strong>local</strong> notifications (<code>UserNotifications</code>) triggered by your own device. There is no push delivery of my own via a server; the silent pushes that trigger change notifications for shared trips run over Apple's CloudKit (see 3.6).</p>
+<h3>3.5 Photo/camera — meter readings and inventory text recognition</h3>
+<p><strong>Meter readings (consumption):</strong> The photo you take as evidence of a meter reading with the camera (camera only, no photo library) is stored as a JPEG locally on your device (an app-owned folder) — it serves as your proof and does not leave the device (except via iCloud sync into your own iCloud account; Etappa does not sync meter photos themselves, see 3.6).</p>
+<p><strong>Inventory text recognition:</strong> When filling in an inventory entry, you can have a photo (camera or photo library) taken or picked to pull text from it. Text recognition runs entirely <strong>on-device</strong> via Apple's Vision framework, with no network call. Only the recognized lines of text are carried into the form; the photo itself is discarded afterwards and not stored. Etappa does not request its own photo-library permission for this — <code>PhotosPicker</code> runs in a process separate from the app.</p>
+<h3>3.6 iCloud/CloudKit and sharing</h3>
+<p>Etappa syncs your trip data between your own devices via your <strong>private</strong> iCloud database by default (<code>iCloudSyncEnabled</code>, default <strong>on</strong>). Without an iCloud account or without a network connection, Etappa keeps working locally without any change, nothing is lost. Your trip data is encrypted in transit and at rest on Apple's servers, within <strong>your own</strong> iCloud account — I have no access to it, as is the case for any app using Apple's CloudKit service.</p>
+<p>A single trip or your whole home profile can also be shared with other people via iCloud (<code>CKShare</code>), with the role "editor" or "viewer":</p>
+<ul><li>Whoever is invited to your <strong>home</strong> sees the home profile, all inventory entries (without their photos and notes — those stay on the respective device), and all trips that live in the home — in full, including booking references, access codes, and payment details.</li><li>Whoever is invited to a <strong>single trip</strong> sees that trip in full (booking references, codes, payments); of the home's inventory entries, only short notes travel along (type and country, e.g. "Austria vignette"), never photos or notes.</li><li>Changes are distributed between devices via silent push notifications; participants additionally get a visible, local notification (e.g. "Anna changed "Summer at the Baltic Sea"", without further content) — switchable off under Settings → On the Road.</li></ul>
+<p>Your data is always encrypted in transit and at rest on Apple's servers — <strong>not end-to-end encrypted</strong>, not even for individual fields. Apple can technically access this data to the extent required to provide the service, unless you have enabled Advanced Data Protection for iCloud. Reviewing "Advanced Data Protection for iCloud" in your device's iCloud settings is a sensible thing to do.</p>
+<p>This policy is updated whenever sharing is extended, and the app points this out before you use such a feature for the first time (e.g. the notice at the sharing entry point: "Everyone you invite sees the whole trip, including booking references and codes.").</p>
+<h3>3.7 Exchange rates (European Central Bank)</h3>
+<p>For currency conversion, Etappa fetches a public, non-personalized rate file from the European Central Bank once per calendar day (<code>https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml</code>, a plain GET request, no sign-in, no API key). This transmits <strong>no</strong> trip, amount, or personal data whatsoever — only a public file is retrieved; technically unavoidable, as with any network request, is that your device's IP address reaches the ECB. The most recently fetched rate table is cached locally so conversion also works offline.</p>
+<h3>3.8 Settings (UserDefaults)</h3>
+<p>Etappa stores app settings (e.g. "arrival notifications on/off", appearance, muted rule hints) in <code>UserDefaults</code> — locally, in Etappa's own app container, with no onward transmission.</p>
+<h3>3.9 Feedback and diagnostic log</h3>
+<p>Via Settings → Help and Information → "Send Feedback" you can prepare an email to me, <a href="mailto:support@voelz-media.de">support@voelz-media.de</a>. Before anything is sent, the app or the mail app shows you the text: app version, build, system version and device type are included automatically — you write your own message on top, no trip data is included. If you write to this address, I process your email address and the content of your message in order to reply; I delete the history once your request is resolved, at the latest after one year.</p>
+<p>Before sending, you can additionally check a <strong>box</strong> to attach a diagnostic log (default: on, with a preview of its content before anything is attached). It lives exclusively locally on your device (Application Support folder, excluded from the iCloud backup), rolling over at most 7 days and 1 MB, and contains exclusively technical, anonymous entries: timestamps, app/system version, device model, language/region, event type (e.g. app launch, view opened, action performed), errors with domain/code and the location in the code, storage and sync errors (CloudKit error code, sync state), permission status for notifications/location, setting states, counts (number of trips/stages/documents, shared yes/no, role), durations of slow operations, and a crash/hang hint via Apple's <code>MetricKit</code>. <strong>Never</strong> included: trip titles, addresses, codes, booking references, names, or any other trip data — the interface simply does not allow that kind of content in.</p>
+<p>The log is never transmitted automatically or in the background, only when you attach it to a feedback email. In Settings → Help and Information you can remove it at any time via "Delete diagnostic log".</p>
+<h3>3.10 TestFlight (beta testing)</h3>
+<p>If you install Etappa via TestFlight, Apple automatically collects crash logs and usage data and makes them available to me in App Store Connect — Apple controls this, not Etappa; an opt-out in iOS Settings does not apply here. If you send feedback via TestFlight (text, screenshot), your name and email address from the TestFlight invitation may be sent along, unless you joined via a public link. This data is used only for troubleshooting and app improvement, is not passed on to third parties, and is not linked to your trip data in the app. Details: Apple, "TestFlight &amp; Privacy" (apple.com/legal/privacy/data/en/test-flight/).</p>
+<h2>4. What Etappa does not do</h2>
+<ul><li>No analytics or tracking SDKs, no ad network, no sale of data.</li><li>No access to Contacts or Calendar (Etappa uses an Apple building block for address formatting from the map service — this is not use of your address book).</li><li>Etappa itself does not automatically send crash reports: the anonymous diagnostic log from section 3.9 only ever reaches me by email and only on your own action. Via TestFlight, section 3.10 additionally applies — there Apple collects crash and usage data automatically, outside my control.</li><li>No ID numbers, no dates of birth.</li></ul>
+<h2>5. Technical and organizational measures</h2>
+<p>In short: your data lives in iOS's own app sandbox, additionally protected by your device lock and iOS's own device encryption; transmission to iCloud runs over transport encryption (TLS). In Settings → Security you can additionally turn on an optional privacy shield for access codes and booking references via Face ID / Touch ID (default: off) — this is explicitly only a <strong>shield against prying eyes</strong> on an unlocked device, <strong>not</strong> its own encryption and not a replacement for the device lock itself.</p>
+<h2>6. Legal bases (Art. 6(1) GDPR)</h2>
+<ul><li><strong>(b) contract / pre-contractual measure:</strong> processing of the trip data you enter, insofar as it belongs to the app's core function.</li><li><strong>(a) consent:</strong> location access, notifications, and camera access — each via the iOS system prompt, revocable at any time in device settings.</li><li><strong>(f) legitimate interest:</strong> technically necessary requests such as the daily ECB rate fetch — my legitimate interest here is providing you with current exchange rates and a functioning app, without any relevant personal data of yours being involved. An objection under Art. 21 GDPR is practically moot here, since no personal data of yours is processed; you can still turn off the automatic conversion in Settings at any time.</li></ul>
+<h2>7. Recipients</h2>
+<ul><li><strong>Apple</strong> as the provider of iOS, Apple Maps/MapKit, iCloud/CloudKit, UserNotifications and TestFlight — each within the scope of the functions described in section 3. Apple processes this data as an independent controller under its own privacy notices.</li><li><strong>Google</strong>, if you deliberately open a Google Maps link to share a route (section 3.3).</li><li><strong>The European Central Bank</strong> only as the source of the publicly retrieved rate file (section 3.7).</li><li>No other recipient. In particular, no data is passed on to advertising networks, analytics providers, or other third parties.</li></ul>
+<p><strong>Third country:</strong> Apple also processes data in the USA; this is based on the EU Standard Contractual Clauses and/or Apple's own privacy notices on international data transfers (apple.com/legal/privacy/). The European Central Bank is based in the EU, so this question does not arise there.</p>
+<h2>8. Retention</h2>
+<p>Trip data remains stored until you delete it in the app or uninstall the app (with iCloud sync on, also until you remove it there). Meter-reading photos remain until you delete them. The ECB rate table is overwritten on each successful daily fetch. Settings remain until you change them or uninstall the app. The diagnostic log (section 3.9) holds at most 7 days, or until you delete it; I delete a support email once your request is resolved, at the latest after one year.</p>
+<h2>9. Your rights</h2>
+<p>Under the GDPR you have the right to access (Art. 15), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20), and objection (Art. 21), as well as the right to withdraw consent at any time with effect for the future (Art. 7(3)) — e.g. location or notification access via iOS settings. Since your trip data lives on your device or in your own iCloud, you can exercise most of these rights directly in the app or via your iCloud settings (e.g. delete a trip, remove a document).</p>
+<p>You also have the right to lodge a complaint with a data protection supervisory authority, in particular with the <strong>Landesbeauftragter für Datenschutz und Informationsfreiheit Mecklenburg-Vorpommern</strong> (responsible for my registered address in Ganzlin), or in the member state of your habitual residence, place of work, or the place of the alleged infringement.</p>
+<h2>10. Children</h2>
+<p>Etappa is intended for adults planning a trip. Traveling children are recorded in the data model only with a name and age group, not a date of birth; they cannot be granted editing rights in the app.</p>
+<h2>11. Changes to this policy</h2>
+<p>If what data Etappa processes changes, this policy will be updated accordingly and the date at the top will be adjusted.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav class="footer-nav" aria-label="Language">
+      <span class="footer-lang" aria-label="Language">
+        <a href="../index.html">DE</a>
+        <a href="index.html" aria-current="true">EN</a>
+      </span>
+    </nav>
+    <p class="footer-note">Etappa · Patrick Voelz · No cookies, no tracking.</p>
+  </div>
+</footer>
+</body>
+</html>
